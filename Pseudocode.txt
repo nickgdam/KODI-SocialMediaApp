@@ -1,0 +1,18 @@
+User table
+
+    userID (auto increment, primary key)
+    userName
+    biography
+    likedPosts (foreign key)
+    
+
+
+
+
+
+Post table
+
+    postId (auto increment, primary key)
+    postData (link, screenshot, video demo, repo, description...)
+    postTags (keywords)
+    userID (foreign key)
