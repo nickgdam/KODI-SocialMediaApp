@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 User table
 
     userID (auto increment, primary key)
@@ -16,3 +17,23 @@ Post table
     postData (link, screenshot, video demo, repo, description...)
     postTags (keywords)
     userID (foreign key)
+=======
+User table
+
+    userID (auto increment, primary key)
+    userName
+    biography
+    likedPosts (foreign key)
+    
+
+
+
+
+
+Post table
+
+    postId (auto increment, primary key)
+    postData (link, screenshot, video demo, repo, description...)
+    postTags (keywords)
+    userID (foreign key)
+>>>>>>> e8fe1156d4c590832926dc2f785a33ffbf025096
