@@ -9,8 +9,9 @@ CREATE TABLE User (
     password VARCHAR(10) not null,
     biography VARCHAR(250),
     likedPosts integer,
-    FOREIGN KEY (likedPosts) references Post(postId)    
-    PRIMARY KEY (id)
+    PRIMARY KEY (userId)
+      
+    
 );
 
 CREATE TABLE Post (
@@ -18,6 +19,7 @@ CREATE TABLE Post (
     postData VARCHAR(50) NOT NULL,
     postTags VARCHAR(250),
     userId integer not null,
-    FOREIGN KEY (userId)References User(userId),     
+    FOREIGN KEY (userId)References User(userId),  
     PRIMARY KEY (postId)
+    
 );
