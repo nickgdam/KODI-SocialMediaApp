@@ -5,17 +5,21 @@ USE social_db;
 
 CREATE TABLE User (
     userId INTEGER NOT NULL AUTO_INCREMENT,
-    user_name VARCHAR(50) NOT NULL,
+    userName VARCHAR(50) NOT NULL,
+    password VARCHAR(10) not null,
     biography VARCHAR(250),
-    likedPosts integer not null,
-    FOREIGN KEY (likedPosts)    
-    PRIMARY KEY (id)
+    likedPosts integer,
+    PRIMARY KEY (userId)
+      
+    
 );
 
 CREATE TABLE Post (
     postId INTEGER NOT NULL AUTO_INCREMENT,
     postData VARCHAR(50) NOT NULL,
     postTags VARCHAR(250),
-    FOREIGN KEY (userId)     
+    userId integer not null,
+    FOREIGN KEY (userId)References User(userId),  
     PRIMARY KEY (postId)
+    
 );
