@@ -4,6 +4,7 @@ CREATE DATABASE social_db;
 
 USE social_db;
 
+
 CREATE TABLE User
 (
 	id int NOT NULL AUTO_INCREMENT,
