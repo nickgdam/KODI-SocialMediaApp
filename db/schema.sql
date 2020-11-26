@@ -3,18 +3,17 @@ CREATE DATABASE social_db;
 
 USE social_db;
 
-CREATE TABLE User (
+CREATE TABLE user (
     userId INTEGER NOT NULL AUTO_INCREMENT,
     userName VARCHAR(50) NOT NULL,
     password VARCHAR(10) not null,
     biography VARCHAR(250),
     likedPosts integer,
     PRIMARY KEY (userId)
-      
-    
+
 );
 
-CREATE TABLE Post (
+CREATE TABLE post (
     postId INTEGER NOT NULL AUTO_INCREMENT,
     postData VARCHAR(50) NOT NULL,
     postTags VARCHAR(250),
