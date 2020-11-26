@@ -8,8 +8,40 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="/assets/js/burger.js"></script>
+
+		<title>
+			{{# if loggedin}}
+			  Welcome {{userName}}
+            {{else}}
+			NodeJS
+			{{/if}}
+		</title>
     </head>
     <body>
+		<div class="container">
+			<div class="page-header">
+				<h1>KODI</h1>
+			</div>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="/">Home</a></li>
+							<li><a href="/views/signup.hbs">Sign Up</a></li>
+                            <li><a href="/Profile">Profile</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							{{# if loggedin}}
+							<li><a href="/logout">Log Out</a></li>
+							{{else }}
+							<li><a href="/views/login.hbs">Sign Up</a></li>
+							{{/if}}
+						</ul>
+	
+					</div>
+				</div>
+			</nav>
+		</div>
         {{{ body }}}
     </body>
 </html>
