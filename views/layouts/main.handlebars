@@ -23,14 +23,14 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li><a href="/">Home</a></li>
-							<li><a href="/views/signup.hbs">Sign Up</a></li>
+							<li><a href="/views/signup.handlebars">Sign Up</a></li>
                             <li><a href="/Profile">Profile</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							{{# if loggedin}}
 							<li><a href="/logout">Log Out</a></li>
 							{{else }}
-							<li><a href="/views/login.hbs">Sign Up</a></li>
+							<li><a href="/views/login.handlebars">Sign Up</a></li>
 							{{/if}}
 						</ul>
 	
