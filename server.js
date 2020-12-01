@@ -19,8 +19,12 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // import routes and give the server access to them
+<<<<<<< HEAD
+var routes = require("./controllers/passport_controller.js");
+=======
 const routes = require("./controllers/post_controller.js")
 
+>>>>>>> 802eafa45aac4e18e21982caadb94bb8f1ae5cc2
 
 app.use(routes);
 
