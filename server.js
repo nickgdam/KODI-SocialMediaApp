@@ -6,7 +6,7 @@ var PORT = process.env.PORT || 8080;
 var app = express();
 
 // serve static content for the app from the "public" directory in the application directory
-app.use(express.static("public"));
+app.use(express.static("views"));
 
 // parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +19,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // import routes and give the server access to them
-const routes = require("./controllers/post_controller.js")
+const routes = require("./controllers/passport_controller.js");
+// const routes = require("./controllers/post_controller.js");
 
 
 app.use(routes);
