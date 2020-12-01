@@ -1,5 +1,6 @@
 var express = require("express");
 
+
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -18,7 +19,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // import routes and give the server access to them
-var routes = require("./controllers/post_controller.js");
+require("./routes/api-routes.js")(app)
+require("./routes/html-routes.js")(app)
+
 
 app.use(routes);
 
