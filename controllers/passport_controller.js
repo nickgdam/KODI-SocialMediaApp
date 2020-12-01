@@ -1,25 +1,49 @@
-const express = require("express")
+const express = require("express");
+const passport = require("../config/passport")
 const router = express.Router();
-const burger = require("../models");
+const user = require("../models/user");
 
 
 router.get("/", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-        //here instead of members we'll put the title of the home page
-        res.redirect("/members");
+        res.render("index");
     }
-    if (!req.user) {
-        
-    }
-})
-app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
-  });
+    res.render("signup")
+});
+
+// router.post("/api/login", passport.authenticate("local"), function(req, res) {
+//     res.json(req.user);
+// });
+
+// router.post("api/signup", function(req, res) {
+//     modles.User.create
+// });
+
+
+//   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+//   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
+//   // otherwise send back an error
+//   app.post("/api/signup", function(req, res) {
+//     db.User.create({
+//       email: req.body.email,
+//       password: req.body.password
+//     })
+//       .then(function() {
+//         res.redirect(307, "/api/login");
+//       })
+//       .catch(function(err) {
+//         res.status(401).json(err);
+//       });
+//   });
+
+// app.get("/", function(req, res) {
+//     // If the user already has an account send them to the members page
+//     if (req.user) {
+//       res.redirect("/members");
+//     }
+//     res.sendFile(path.join(__dirname, "../public/signup.html"));
+//   });
 
   /* api calls from passport prototype, need to be refactored */
 // // Using the passport.authenticate middleware with our local strategy.
@@ -96,4 +120,4 @@ app.get("/", function(req, res) {
 //     res.sendFile(path.join(__dirname, "../public/members.html"));
 //   });
 
-// };
+// }
