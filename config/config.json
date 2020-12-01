@@ -1,0 +1,38 @@
+{
+    "development": {
+      "username": "root",
+<<<<<<< HEAD
+      "password": "V@45fore%9RUop",
+      "database": "social_db",
+      "host": "127.0.0.1",
+      "port": 3306,
+=======
+      "password": "",
+      "database": "social_db",
+      "host": "127.0.0.1",
+>>>>>>> 802eafa45aac4e18e21982caadb94bb8f1ae5cc2
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": null,
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+<<<<<<< HEAD
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  }
+  
+=======
+      "use_env_variable": "JAWSDB_URL",
+      "dialect": "mysql"
+    }
+  }
+>>>>>>> 802eafa45aac4e18e21982caadb94bb8f1ae5cc2
