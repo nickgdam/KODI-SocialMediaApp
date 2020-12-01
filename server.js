@@ -19,8 +19,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // import routes and give the server access to them
-require("./routes/api-routes.js")(app)
-require("./routes/html-routes.js")(app)
+const routes = require("./controllers/post_controller.js")
 
 
 app.use(routes);
