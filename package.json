@@ -18,8 +18,23 @@
   },
   "homepage": "https://github.com/nickgdam/Project-2#readme",
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
+    "bcryptjs": "2.4.3",
     "express-handlebars": "^5.2.0",
-    "mysql": "^2.18.1"
+<<<<<<< HEAD
+    "mysql2": "^1.6.5",
+    "express-session": "^1.16.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.8.6"
+=======
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.3.5"
+>>>>>>> 802eafa45aac4e18e21982caadb94bb8f1ae5cc2
   }
 }
