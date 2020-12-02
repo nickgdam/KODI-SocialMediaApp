@@ -26,7 +26,7 @@ router.get("/signup", function (req, res) {
 });
 
 router.post("/api/user", function(req, res) {
-    burgers.insertOne(["user_name", "password"], 
+    user.insertOne(["user_name", "password"], 
     [req.body.user_name, req.body.password], 
     function(result) {
         res.json({ id: result.insertId });
