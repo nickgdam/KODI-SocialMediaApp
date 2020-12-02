@@ -6,6 +6,7 @@ var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
 var post = require("../models/post.js");
+const user = require("../models/user.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function (req, res) {
@@ -22,6 +23,14 @@ router.get("/", function (req, res) {
 router.get("/signup", function (req, res) {
 
     res.render("signup")
+});
+
+router.post("/api/user", function(req, res) {
+    burgers.insertOne(["user_name", "password"], 
+    [req.body.user_name, req.body.password], 
+    function(result) {
+        res.json({ id: result.insertId });
+    });
 });
 
 router.get("/login", function (req, res) {
