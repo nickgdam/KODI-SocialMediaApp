@@ -1,11 +1,12 @@
 var express = require("express");
 var create = require("express-handlebars")
-
+var app = require("express");
+var passport = require("../config/passport");
 
 var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
-var post = require("../models/post.js");
+const post = require("../models/post.js");
 const user = require("../models/user.js");
 
 // Create all our routes and set up logic within those routes where required.
@@ -20,10 +21,13 @@ router.get("/", function (req, res) {
     res.render("index")
 });
 
-router.get("/signup", function (req, res) {
-
-    res.render("signup")
-});
+app.post("/api/login", passport.authenticate("local"), (req, res) => {
+    let userData = {
+      username: req.user.dataValues.username,
+      password: req.user.password
+    }
+    res.json(userData);
+  });
 
 router.post("/api/user", function(req, res) {
     user.insertOne(["user_name", "password"], 

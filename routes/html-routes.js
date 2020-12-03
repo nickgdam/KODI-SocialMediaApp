@@ -23,9 +23,26 @@ module.exports = function (app) {
     res.render("signup")
   });
 
+
+  app.get("/userpost", (req, res) => {
+
+    res.render("userPosts")
+  });
+
   app.get("/profile", passport.authenticate("local"), (req, res) => {
 
+
     res.render("profile")
+  });
+  app.get("/addpost", (req, res) => {
+
+    res.render("addPost")
+  });
+
+
+  app.get("/userposts", (req, res) => {
+
+    res.render("userposts")
   });
 
 }

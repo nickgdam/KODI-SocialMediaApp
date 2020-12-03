@@ -1,15 +1,20 @@
 {
     "development": {
       "username": "root",
+<<<<<<< HEAD
       "password": "V@45fore%9RUop",
       "database": "codi_db",
+=======
+      "password": "asap0921",
+      "database": "social_db",
+>>>>>>> main
       "host": "127.0.0.1",
       "port": 3306,
       "dialect": "mysql"
     },
     "test": {
       "username": "root",
-      "password": null,
+      "password": "asap0921",
       "database": "database_test",
       "host": "127.0.0.1",
       "dialect": "mysql"
