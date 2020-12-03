@@ -1,19 +1,21 @@
-<div class="container row">
-    <div class="jumbotron-col-sm-4 pull-center">
-        <form action="/views/signup.hbs" method="post" id="signUp">
-            <div>
-                <label>Username:</label>
-                <input type="text" name="username" id="newUser" />
-            </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" name="password" id="newPassword" />
-            </div>
-            <div>
-                <button class="btn-btn-primary" type="submit" value="signUp" id="signUpButton">Sign Up</button>
-            </div>
-
+<div class = "container">
+    <div class = "row col-sm-4 text-center">
+        <form class="signup">
+          <div class="form-group">
+            <label>User Name</label>
+            <input type="userName" class="form-control" id="username-input" placeholder="User Name">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          </div>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
     </div>
-
 </div>
+
+<script src = "/assets/js/signUp.js"></script>
