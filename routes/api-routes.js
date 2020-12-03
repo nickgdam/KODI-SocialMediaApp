@@ -62,7 +62,7 @@ module.exports = function (app) {
             password: req.body.password
         }).then(function (social_db) {
             // We have access to the new todo as an argument inside of the callback function
-            res.json(social_db);
+            res.render("login");
         });
     });
 
