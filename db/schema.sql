@@ -19,7 +19,7 @@ CREATE TABLE Post
 	id int NOT NULL AUTO_INCREMENT,
 	post_name varchar(255) NOT NULL,
 	post_content varchar(255) NOT NULL,
-	post_tags int NOT NULL,
+	post_tags varchar(255) NOT NULL,
 	user_id int NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_id) REFERENCES User(id)

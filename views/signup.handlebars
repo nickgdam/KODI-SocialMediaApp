@@ -1,19 +1,26 @@
-<div class="container row">
-    <div class="jumbotron-col-sm-4 pull-center">
-        <form action="/views/signup.hbs" method="post" id="signUp">
-            <div>
-                <label>Username:</label>
-                <input type="text" name="username" id="newUser" />
-            </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" name="password" id="newPassword" />
-            </div>
-            <div>
-                <button class="btn-btn-primary" type="submit" value="signUp" id="signUpButton">Sign Up</button>
-            </div>
 
-        </form>
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="card" style="width: 20rem; background-color: darkgray;">
+<div class="card-body">
+<h3 class="card-title">Please Login</h3>
+<form action="/views/signup.handlebars" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" id="newUser"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" id="newPassword"/>
+    </div>
+    <br>
+    <div>
+        <button class="btn-btn-primary" type="submit" id="signUpButton"  value="Login">Register</button>
     </div>
 
+</form>
+</div>
+</div>
 </div>
