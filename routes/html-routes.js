@@ -23,9 +23,16 @@ module.exports = function (app) {
     res.render("signup")
   });
 
-  app.get("/profile", passport.authenticate("local"), (req, res) => {
+  
+
+  app.get("/profile", (req, res) => {
 
     res.render("profile")
+  });
+
+  app.get("/userposts", (req, res) => {
+
+    res.render("userposts")
   });
 
 }

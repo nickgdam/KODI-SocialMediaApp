@@ -1,29 +1,13 @@
-<div class="container row">
- <div class="jumbotron-col-sm-4 pull-center">
-    <form action="/views/login.hbs" method="post" id="signIn">
-      <div>
-          <label>Username:</label>
-          <input type="text" name="username" id="userName" />
-      </div>
-      <div>
-           <label>Password:</label>
-           <input type="password" name="password" id="userPassword"/>
-      </div>
-      <div>
-          <button class="btn-btn-primary" type="submit" value="signIn" id="signInButton">Sign In</button>
-      </div>
-     
-    </form>
- </div>
+
 
 <div class="container">
                 
   <div class="row justify-content-center">
     
-    <div class="card" style="width: 20rem; background-color: darkgray;">
+    <div class="card p-3" style="width: 20rem; background-color:rgba(235, 230, 230, 0.959);">
     <div class="card-body">
     <h3 class="card-title">Please Login</h3>
-    <form action="/views/login.hbs" method="post">
+    <form action="/login" method="post">
       <div>
           <label>Username:</label>
           <input type="text" name="username"/>
@@ -34,7 +18,7 @@
       </div>
       <br>
       <div>
-        <button class="btn-btn-primary" type="submit" value="signIn" id="signInButton">Sign In</button>
+      <button class="btn-btn-primary" type="submit" value="signIn" id="signInButton">Sign In</button>
       </div>
     
     </form>
