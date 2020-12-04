@@ -1,42 +1,42 @@
-$(document).ready(() => {
-    // declaring global variables
-    const signUpForm = $("form.signup");
-    const usernameInput = $("input#newUser");
-    const passwordInput = $("input#newPassword");
-  
-    // when user clicks the signup button, the input is validated
-    signUpForm.on("submit", event => {
-      event.preventDefault();
-      const userData = {
-        userName: usernameInput.val().trim(),
-        password: passwordInput.val().trim()
-      };
-  
-      if (!userData.password || !userData.userName) {
-        handleLoginErr();
-        return;
-      }
-      // If input is validated with no errors, run sign up function
-      signUpUser(userData.userName, userData.password);
-      usernameInput.val("");
-      passwordInput.val("");
-    });
-  
-//    posts new user to database
-    function signUpUser( userName, password) {
-      $.post("/api/signup", {
-        userName: userName,
-        password: password,
-      })
-    //   redirects to main page.  
-        .then(() => {
-          window.location.replace("/main.handlebars");
-        })
-        .catch(handleLoginErr);
+$(document).ready(function() {
+  // Getting references to our form and input
+  const signUpForm = $("form.signup");
+  const userNameInput = $("input#username-input");
+  const passwordInput = $("input#password-input");
+
+  // When the signup button is clicked, we validate the email and password are not blank
+  signUpForm.on("submit", function(event) {
+    event.preventDefault();
+    var userData = {
+      userName: userNameInput.val().trim(),
+      password: passwordInput.val().trim()
+    };
+
+    if (!userData.userName || !userData.password) {
+      return;
     }
-  
-    function handleLoginErr(err) {
-      $("#alert .msg").text("You must enter a username and password!");
-      $("#alert").fadeIn(500);
-    }
+    // If we have an email and password, run the signUpUser function
+    signUpUser(userData.userName, userData.password);
+    userNameInput.val("");
+    passwordInput.val("");
   });
+
+  // Does a post to the signup route. If successful, we are redirected to the members page
+  // Otherwise we log any errors
+  function signUpUser(userName, password) {
+    $.post("/api/signup", {
+      userName: userName,
+      password: password
+    })
+      .then(function(data) {
+        window.location.replace("/members");
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
+  }
+
+  function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+  }
+});
