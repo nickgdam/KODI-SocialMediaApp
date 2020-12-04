@@ -26,12 +26,12 @@ module.exports = function (app) {
             });
     });
 
-    app.get("/api/posts", function (req, res) {
+    app.get("/api/userposts", function (req, res) {
         // findAll returns all entries for a table when used with no options
-        db.User.findAll({}).then(function (dbPost) {
+       db.Post.findAll({}).then((dbPost) => {
             // We have access to the todos as an argument inside of the callback function
             res.json(dbPost);
-        })
+        }) 
             .catch(function (err) {
                 console.log(err);
             });
@@ -43,14 +43,17 @@ module.exports = function (app) {
         // create takes an argument of an object describing the item we want to
         // insert into our table. In this case we just we pass in an object with a text
         // and complete property (req.body)
-        db.Post.create({
+        db.Posts.create({
             post_name: req.body.title,
-            post_content: req.body.body
+            post_content: req.body.body,
+            post_tags: req.body.post_tags
         }).then(function (social_db) {
             // We have access to the new todo as an argument inside of the callback function
             res.json(social_db);
         });
     });
+
+
 
     app.post("/api/signup", function (req, res) {
         console.log(req.body);
@@ -62,8 +65,18 @@ module.exports = function (app) {
             password: req.body.password
         }).then(function (social_db) {
             // We have access to the new todo as an argument inside of the callback function
-            res.render("login");
+            res.render("login",);
         });
+    });
+    
+    app.post("/api/login", passport.authenticate("local"), (req, res) => {       
+      let userData = {
+          user_name: req.User.datavalues.username,
+          password: req.User.datavalues.password
+      }
+      res.json(userData)
+       
+        
     });
 
     // DELETE route for deleting todos. We can get the id of the todo we want to delete from
