@@ -12,9 +12,9 @@ const passport = require("../config/passport");
 module.exports = function (app) {
 
     // GET route for getting all of the todos
-    app.get("/api/users", function (req, res) {
+    app.get("/api/allUsers", function (req, res) {
         // findAll returns all entries for a table when used with no options
-        db.User.findAll({}).then(function (dbUser) {
+        db.User.findAll({}).then((dbUser) => {
             // We have access to the todos as an argument inside of the callback function
             res.json(dbUser);
         })

@@ -24,18 +24,30 @@ module.exports = function (app) {
     res.render("signup")
   });
 
+  app.get("/userposts", (req, res) => {
+    db.Posts.findAll({}).then((dbPost) => {
+      console.log(dbPost)
+      // We have access to the todos as an argument inside of the callback function
+      res.render("userposts", { Posts: dbPost })
+    })
+      .catch(function (err) {
+        console.log(err);
+      });
 
-  app.get("/userpost", (req, res) => {
 
-    res.render("userPosts", {
-      user: res.user_name,
-      title: res.post_title
-
-    });
+  });
+  app.get("/allUsers", (req, res) => {
+    db.User.findAll({}).then((dbUser) => {
+      // We have access to the todos as an argument inside of the callback function
+      res.render("allUsers", {User: dbUser})
+  })
+      .catch(function (err) {
+          console.log(err);
+      });
   });
 
   app.get("/profile",
-    passport.authenticate("local"),
+    // passport.authenticate("local"),
     (req, res) => {
       if (!req.user) {
         // The user is not logged in, send back an empty object
@@ -43,9 +55,11 @@ module.exports = function (app) {
       } else {
         // Otherwise send back the user's email and id
         // Sending back a password, even a hashed password, isn't a good idea
-        res.json({
-          user: req.user.username,
-          password: req.user.password
+        res.render("profile", {
+          user_name: req.user.user_name,
+          firstName: req.user.firstName,
+          lastName: req.user.lastName,
+          biography: req.user.biography
         });
       }
 
@@ -59,18 +73,7 @@ module.exports = function (app) {
   });
 
 
-  app.get("/userposts", (req, res) => {
-    db.Posts.findAll({}).then((dbPost) => {
-      console.log(dbPost)
-      // We have access to the todos as an argument inside of the callback function
-      res.render("userposts", { Posts: dbPost })
-    })
-      .catch(function (err) {
-        console.log(err);
-      });
-
-
-  });
+  
 
   
 app.get("/userposts/:id", function (req, res) {
