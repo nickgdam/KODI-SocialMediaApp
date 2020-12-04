@@ -17,8 +17,8 @@ module.exports = function(sequelize, DataTypes) {
       user_id: {
           type: DataTypes.INTEGER,
           allowNULL: false
-      },
-      
+
+      }
     });
     Posts.associate = function(models) {
       // We're saying that a Post should belong to an Author
