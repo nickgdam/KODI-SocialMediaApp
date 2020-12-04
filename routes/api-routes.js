@@ -34,6 +34,13 @@ module.exports = function (app) {
             });
     });
 
+    
+
+
+
+    
+
+
     // POST route for saving a new todo
     app.post("/api/addPost", function (req, res) {
         console.log(req.body);
@@ -44,11 +51,28 @@ module.exports = function (app) {
             post_name: req.body.title,
             post_content: req.body.body,
             post_tags: req.body.post_tags
+// forgiegn key goes here (user_id)
         }).then(function (social_db) {
             // We have access to the new todo as an argument inside of the callback function
-            res.json(social_db);
+            // res.json(social_db);
+            res.render("userPosts", social_db);
         });
     });
+
+
+    // DELETE route for deleting todos. We can get the id of the todo we want to delete from
+    // req.params.id
+    // app.delete("/api/singlePost/:id", function (req, res) {
+
+    //     db.Posts.destroy({
+    //         where:{
+    //             id: req.params.id
+    //         }
+    //     }).then(function(dbPost) {
+    //         res.json(dbPost)
+
+    //     })
+    // });
 
 
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
@@ -65,22 +89,24 @@ module.exports = function (app) {
         // and complete property (req.body)
         db.User.create({
             user_name: req.body.username,
-            password: req.body.password
+            password: req.body.password,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName
         }).then(function (social_db) {
             // We have access to the new todo as an argument inside of the callback function
             res.render("login",);
         });
     });
     
-    app.post("/api/login", passport.authenticate("local"), (req, res) => {       
-      let userData = {
-          user_name: req.User.datavalues.username,
-          password: req.User.datavalues.password
-      }
-      res.json(userData)
+    // app.post("/api/login", passport.authenticate("local"), (req, res) => {       
+    //   let userData = {
+    //       user_name: req.User.datavalues.username,
+    //       password: req.User.datavalues.password
+    //   }
+    //   res.json(userData)
        
         
-    });
+    // });
 
     app.post("/api/profile:user")
 
