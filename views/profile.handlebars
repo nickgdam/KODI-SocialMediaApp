@@ -1,19 +1,22 @@
 <div class="container">
+    <form action="/profile" method="GET">
     <div class="row">
         <div class="col-small-4">
             <div class="card p-3" style="width:18rem;">
                 <img src="{{user.image}}" class="card-img-top">                
                 <div class="card-body">
-                  <h5 class="card-title">{{user.username}}</h5> 
+                  <h5 class="card-title">{{user.user_name}}</h5> 
                 </div>
             </div>
         </div>
         <div class="col-small-4">
             <h1>Profile</h1>
-            <p>Firstname: <span class="red">{{user.firstname}}</span></p>
-            <p>Lastname: <span class="red">{{user.lastname}}</span></p>
+            <p>Firstname: <span class="red">{{user.firstName}}</span></p>
+            <p>Lastname: <span class="red">{{user.lastName}}</span></p>
+            <p>Biography: {{user.biography}}</p>
         </div>
     </div>
+    </form>
 </div>
 
 {{!-- <div class="container mt-5 d-flex justify-content-center">
