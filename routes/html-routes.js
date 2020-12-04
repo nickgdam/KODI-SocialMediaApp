@@ -35,7 +35,7 @@ module.exports = function (app) {
   });
 
   app.get("/profile",
-   passport.authenticate("local"),
+    passport.authenticate("local"),
     (req, res) => {
       if (!req.user) {
         // The user is not logged in, send back an empty object
@@ -48,11 +48,11 @@ module.exports = function (app) {
           password: req.user.password
         });
       }
-  
 
-    
 
-  });
+
+
+    });
   app.get("/addpost", (req, res) => {
 
     res.render("addPost")
@@ -63,13 +63,31 @@ module.exports = function (app) {
     db.Posts.findAll({}).then((dbPost) => {
       console.log(dbPost)
       // We have access to the todos as an argument inside of the callback function
-      res.render("userposts", {Posts: dbPost})
+      res.render("userposts", { Posts: dbPost })
+    })
+      .catch(function (err) {
+        console.log(err);
+      });
+
+
+  });
+
+  
+app.get("/userposts/:id", function (req, res) {
+  // findAll returns all entries for a table when used with no options
+ db.Posts.findAll({
+     where:{
+         id:req.params.id
+     }
+ }).then((dbPost) => {
+      // We have access to the todos as an argument inside of the callback function
+      res.render("userposts", { Posts: dbPost })
   }) 
       .catch(function (err) {
           console.log(err);
       });
+});
 
-    
-  });
 
 }
+

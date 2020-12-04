@@ -11,6 +11,8 @@ CREATE TABLE User
 	user_name varchar(255) NOT NULL,
 	password varchar(28) NOT NULL,
 	biography varchar (255) NOT NULL,
+	firstName varchar(255) NOT NULL,
+	lastName varchar(255) NOT Null
 	PRIMARY KEY (id)
 );
 
