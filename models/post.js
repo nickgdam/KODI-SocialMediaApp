@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const Post = sequelize.define("Post", {
+    const Posts = sequelize.define("Posts", {
       // The email cannot be null, and must be a proper email before creation
       post_name: {
         type: DataTypes.STRING,
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       
     });
-    Post.associate = function(models) {
+    Posts.associate = function(models) {
       // We're saying that a Post should belong to an Author
       // A Post can't be created without an Author due to the foreign key constraint
       this.belongsTo(models.User, {
@@ -29,6 +29,6 @@ module.exports = function(sequelize, DataTypes) {
       }});
     }
     
-    return Post;
+    return Posts;
     // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
 };

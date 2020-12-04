@@ -1,5 +1,5 @@
 
-
+var db = require("../models");
 var passport = require("../config/passport");
 // Requiring our custom middleware for checking if a user is logged in
 const authenticate = require("../config/middleware/isAuthenticated");
@@ -26,13 +26,31 @@ module.exports = function (app) {
 
   app.get("/userpost", (req, res) => {
 
-    res.render("userPosts")
+    res.render("userPosts", {
+      user: res.user_name,
+      title: res.post_title
+
+    });
   });
 
-  app.get("/profile", passport.authenticate("local"), (req, res) => {
+  app.get("/profile",
+   passport.authenticate("local"),
+    (req, res) => {
+      if (!req.user) {
+        // The user is not logged in, send back an empty object
+        res.json({});
+      } else {
+        // Otherwise send back the user's email and id
+        // Sending back a password, even a hashed password, isn't a good idea
+        res.json({
+          user: req.user.username,
+          password: req.user.password
+        });
+      }
+  
 
+    
 
-    res.render("profile")
   });
   app.get("/addpost", (req, res) => {
 
@@ -41,8 +59,16 @@ module.exports = function (app) {
 
 
   app.get("/userposts", (req, res) => {
+    db.Posts.findAll({}).then((dbPost) => {
+      console.log(dbPost)
+      // We have access to the todos as an argument inside of the callback function
+      res.render("userposts", {Posts: dbPost})
+  }) 
+      .catch(function (err) {
+          console.log(err);
+      });
 
-    res.render("userposts")
+    
   });
 
 }
