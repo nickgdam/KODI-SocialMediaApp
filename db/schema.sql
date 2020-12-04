@@ -14,13 +14,13 @@ CREATE TABLE User
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE Post
+CREATE TABLE Posts
 (
 	id int NOT NULL AUTO_INCREMENT,
 	post_name varchar(255) NOT NULL,
 	post_content varchar(255) NOT NULL,
-	post_tags varchar(255) NOT NULL,
-	user_id int NOT NULL,
+	post_tags varchar(255) NULL,
+	user_id int NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_id) REFERENCES User(id)
 );
