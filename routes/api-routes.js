@@ -62,23 +62,25 @@ module.exports = function (app) {
 
     // DELETE route for deleting todos. We can get the id of the todo we want to delete from
     // req.params.id
-    // app.delete("/api/singlePost/:id", function (req, res) {
+    app.delete("api/delete/:id", (req, res) => {
 
-    //     db.Posts.destroy({
-    //         where:{
-    //             id: req.params.id
-    //         }
-    //     }).then(function(dbPost) {
-    //         res.json(dbPost)
+        db.Posts.destroy({
+            where:{
+                id: req.params.id
+            }
+        }).then(function(dbPost) {
+            res.json(dbPost)
 
-    //     })
-    // });
+        })
+    });
 
 
-    app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    app.post("/api/login", passport.authenticate("local"), function(req, res, err) {
 
         console.log("login api");
-        res.render("profile");
+        res.render("profile", );
+        
+        // console.log(err)
     });
 
 
@@ -108,16 +110,9 @@ module.exports = function (app) {
         
     // });
 
-    app.post("/api/profile:user")
+    
 
     // DELETE route for deleting todos. We can get the id of the todo we want to delete from
     // req.params.id
-    app.delete("/api/todos/:id", function (req, res) {
-
-    });
-
-    // PUT route for updating todos. We can get the updated todo from req.body
-    app.put("/api/todos", function (req, res) {
-
-    });
-};
+    
+}
