@@ -3,12 +3,9 @@
 // *********************************************************************************
 
 // Dependencies
-// =============================================================
-
-// Requiring our Todo model
+// ============================================================
 var db = require("../models");
 const passport = require("../config/passport");
-const Sequelize = require('sequelize');
 
 // Routes
 // =============================================================
@@ -52,6 +49,12 @@ module.exports = function (app) {
         });
     });
 
+    app.post("/api/login", passport.authenticate("local"), function(req, res) {
+
+        res.json(req.user);
+        res.render("profile")
+      });
+
     app.post("/api/signup", function (req, res) {
         console.log(req.body);
         // create takes an argument of an object describing the item we want to
@@ -65,6 +68,8 @@ module.exports = function (app) {
             res.render("login");
         });
     });
+
+    app.post("/api/profile:user")
 
     // DELETE route for deleting todos. We can get the id of the todo we want to delete from
     // req.params.id

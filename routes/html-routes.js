@@ -6,9 +6,10 @@ const authenticate = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
   app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
-    res.render("index")
-    // res.sendFile(path.join(__dirname, "../views/index.handlebars"));
+    if (req.user) {
+      res.render("index");
+    }
+    res.render("signup");
   });
 
   app.get("/login", (req, res) => {
