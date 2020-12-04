@@ -1,16 +1,14 @@
-
-
 <div class="container">
                 
   <div class="row justify-content-center">
     
     <div class="card" style="width: 20rem; background-color:rgba(240, 233, 233, 0.884);">
     <div class="card-body">
-    <h4 class="card-title text-center">Please Login</h4>
-    <form action="/login" method="post">
-      <div class="form-group mb-2">
-        <label for ="exampleFormControlInput">Username:</label>
-        <input type="text" name="username"/>
+    <h3 class="card-title">Please Login</h3>
+    <form action="/api/login" method="post">
+      <div>
+          <label>Username:</label>
+          <input type="text" name="username"/>
       </div>
       <div class="form-group mb-2">
           <label for ="inputPassword">Password:</label>
