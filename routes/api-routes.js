@@ -64,6 +64,8 @@ module.exports = function (app) {
         // insert into our table. In this case we just we pass in an object with a text
         // and complete property (req.body)
         db.User.create({
+            firstName:req.body.firstName,
+            lastName:req.body.lastName,
             user_name: req.body.username,
             password: req.body.password
         }).then(function (social_db) {

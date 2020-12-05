@@ -17,6 +17,16 @@ module.exports = function(sequelize, DataTypes) {
     biography: {
         type:DataTypes.STRING,
         allowNULL: true
+      },
+      firstName: {
+        type:DataTypes.STRING,
+          allowNULL: true,
+          defaultValue: "Not Added"
+      },
+      lastName: {
+        type:DataTypes.STRING,
+          allowNULL: true,
+          defaultValue: "Not Added"
       }
     },
     {
