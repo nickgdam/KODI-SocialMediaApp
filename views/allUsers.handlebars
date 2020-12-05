@@ -1,0 +1,20 @@
+<form action="/allUsers" method="GET">
+    <div class="container">
+        <h1></h1>
+        {{#each User}}
+        <div class="media jumbotron">
+            <div class="media-body">
+                <h2 class="mt-0">{{dataValues.user_name}} </h2>
+                <h3>{{dataValues.firstName}} {{dataValues.lastName}}</h3>
+               
+
+                <p>{{dataValues.Biography}}</p>
+                <button class="btn btn-outline-secondary">View Profile</button>
+            </div>
+        </div>
+        <hr>
+        {{else}}
+        <p>No Users to show...</p>
+        {{/each}}
+    </div>
+</form>

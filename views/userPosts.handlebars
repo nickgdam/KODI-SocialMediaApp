@@ -1,4 +1,4 @@
-<form action="/userpost" method="GET">
+<form action="/userposts" method="GET">
     <div class="container">
         <h1>Public Posts</h1>
         {{#each Posts}}
@@ -9,6 +9,7 @@
                 <h5>{{dataValues.post_tags}} </h5>
 
                 <small>{{dataValues.createdAt}}</small>
+               <a href="/profile"><button class="btn btn-primary">Profile</button></a>
             </div>
         </div>
         <hr>
