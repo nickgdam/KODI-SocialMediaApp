@@ -10,10 +10,15 @@
             </div>
         </div>
         <div class="col-small-4">
+        <div class="card p-3">
+           <div class="d-flex align-items-center">
             <h1>Profile</h1>
-            <p>Firstname: <span class="red">{{user.firstName}}</span></p>
-            <p>Lastname: <span class="red">{{user.lastName}}</span></p>
+            <p>First Name: <span class="red">{{dataValues.firstName}}</span></p>
+            <p>Last Name: <span class="red">{{dataValues.lastName}}</span></p>
             <p>Biography: {{user.biography}}</p>
+            <a href="/addPost" class="btn btn-info">New Post</a>
+         </div>
+         </div>   
         </div>
     </div>
     </form>
