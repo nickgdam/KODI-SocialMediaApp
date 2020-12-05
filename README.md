@@ -47,8 +47,8 @@ In this Project, we created a Social Media Application with users, posts and com
   * Run seed file in MySQL Workbench or an equivalent if you would like starting data.
   * Run node server.js in your terminal to start the application.
   
-  ## View:Heroku 
-  
+ ## View:Heroku 
+ https://social-media-app-kodi.herokuapp.com/
   
 
 ## Contributors
