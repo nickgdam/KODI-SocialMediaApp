@@ -1,5 +1,6 @@
 # Project-2: 
 ## KODI-SocialMedia App For Devs!
+![image](https://user-images.githubusercontent.com/49447293/101258415-5e797080-36f0-11eb-86e9-1c2c9cc65ec5.png)
 
 ![License](https://img.shields.io/badge/License-APACHE2.0-blue.svg)<br />
 
