@@ -1,17 +1,17 @@
 "use strict";
 
-var fs = require("fs");
-var path = require("path");
-var Sequelize = require("sequelize");
-var basename = path.basename(module.filename);
-var env = process.env.NODE_ENV || "development";
-var config = require(__dirname + "/../config/config.json")[env];
-var db = {};
+let fs = require("fs");
+let path = require("path");
+let Sequelize = require("sequelize");
+let basename = path.basename(module.filename);
+let env = process.env.NODE_ENV || "development";
+let config = require(__dirname + "/../config/config.json")[env];
+let db = {};
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
+if (process.env.JAWSDB_URL) {
+  let seq = new Sequelize(process.env.JAWSDB_URL)
 } else {
-  var sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, config);
+  let sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, config);
 }
 
 fs
