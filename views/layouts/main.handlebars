@@ -2,12 +2,20 @@
 <html lang="en">
 
 <head>
+	<title>
+        {{#if loggedin}}
+			Welcome {{user.username}}
+		{{else }}
+			Kodi Main
+		{{/if}}
+		</title>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="./css/style.css">
 	<title>
 		Kodi Main
 	</title>
@@ -24,15 +32,12 @@
 					<li><a href="/">Home</a></li>
 					<li><a href="/profile">Profile</a></li>
 					<li><a href="/userPosts">Feeds</a></li>
-					<li><a href="/addPost">New Post</a></li>
 					<li><a href="/allUsers">All Users</a></li>
 					
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					{{# if loggedin}}
-					{{else }}
-					<li><a href="/signup">Sign Up</a></li>
-					<li><a href="/login">Sign In</a></li>
+					{{#if loggedin}}
+					<li><a href="/">Log Out</a></li>
 					{{/if}}
 				</ul>
 

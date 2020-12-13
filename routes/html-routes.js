@@ -9,7 +9,7 @@ module.exports = function (app) {
     if (req.user) {
       res.render("index");
     }
-    res.render("signup");
+    res.render("index");
   });
 
   app.get("/login", (req, res) => {
@@ -87,14 +87,7 @@ module.exports = function (app) {
           res.status(401).json(err)
           console.log(err)
         });
-    })
-      
-        // Otherwise send back the user's email and id
-        // Sending back a password, even a hashed password, isn't a good idea
-       
-      
-
-
+    });
 
 
     });
