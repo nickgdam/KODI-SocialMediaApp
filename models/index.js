@@ -11,7 +11,8 @@ let db = {};
 if (process.env.JAWSDB_URL) {
   let seq = new Sequelize(process.env.JAWSDB_URL)
 } else {
-  let sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, config);
+  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+  // let sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, config);
 }
 
 fs
